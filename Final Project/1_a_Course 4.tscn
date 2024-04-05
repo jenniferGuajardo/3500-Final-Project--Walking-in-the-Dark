@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://41y5whn6aiil"]
+
+[ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_iaqs8"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vdx5e"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_twv8w"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fylf5"]
+
+[node name="1ACourse4" type="Node3D"]
+
+[node name="Plain Mesh Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
+mesh = SubResource("PlaneMesh_vdx5e")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Plain Mesh Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plain Mesh Floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_twv8w")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.19958, 0)
+script = ExtResource("1_iaqs8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_fylf5")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.623357, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.99845, 0.0556649, 0, -0.0556649, 0.99845, 0, 0, 0)
+light_color = Color(1, 0.878431, 0.721569, 1)
+light_energy = 4.0
+light_size = 1.0
+distance_fade_length = 15.0
+spot_range = 42.103
+spot_angle = 29.6595
