@@ -76,54 +76,54 @@ mesh = SubResource("PlaneMesh_0glbh")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plain Mesh Ceiling/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_t0upk")
 
-[node name="Hub Ring - 1" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 2, 3)
+[node name="Level Ring - 1" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 2, -10)
 mesh = SubResource("TorusMesh_h1gcv")
 script = ExtResource("2_3j1i3")
 
-[node name="Goal Light" type="OmniLight3D" parent="Hub Ring - 1"]
+[node name="Goal Light" type="OmniLight3D" parent="Level Ring - 1"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 light_color = Color(0, 0.737255, 0.584314, 1)
 light_energy = 2.446
 light_indirect_energy = 3.905
 omni_range = 12.0
 
-[node name="Warp Area1" type="Area3D" parent="Hub Ring - 1"]
+[node name="Warp Area1" type="Area3D" parent="Level Ring - 1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 disable_mode = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hub Ring - 1/Warp Area1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Ring - 1/Warp Area1"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_k115e")
 
-[node name="Hub Ring - 2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 2, 6)
+[node name="Level Ring - 2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 7, 2, -10)
 mesh = SubResource("TorusMesh_h1gcv")
 script = ExtResource("2_3j1i3")
 
-[node name="Goal Light" type="OmniLight3D" parent="Hub Ring - 2"]
+[node name="Goal Light" type="OmniLight3D" parent="Level Ring - 2"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 light_color = Color(0, 0.737255, 0.584314, 1)
 light_energy = 2.446
 light_indirect_energy = 3.905
 omni_range = 12.0
 
-[node name="Warp Area2" type="Area3D" parent="Hub Ring - 2"]
+[node name="Warp Area2" type="Area3D" parent="Level Ring - 2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 disable_mode = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hub Ring - 2/Warp Area2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Ring - 2/Warp Area2"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_k115e")
 
 [node name="Goal Ring" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9, 2, 6)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9, 2, 41)
+visible = false
 mesh = SubResource("TorusMesh_h1gcv")
 script = ExtResource("2_3j1i3")
 
 [node name="Goal Light" type="OmniLight3D" parent="Goal Ring"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
-light_color = Color(0, 0.737255, 0.584314, 1)
 light_energy = 2.446
 light_indirect_energy = 3.905
 omni_range = 12.0
@@ -137,13 +137,14 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_k115e")
 
 [node name="Hub Ring" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -6, 2, 3)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -3, 2, 40)
+visible = false
 mesh = SubResource("TorusMesh_h1gcv")
 script = ExtResource("2_3j1i3")
 
 [node name="Goal Light" type="OmniLight3D" parent="Hub Ring"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
-light_color = Color(0, 0.737255, 0.584314, 1)
+light_color = Color(0.878431, 0.533333, 0.301961, 1)
 light_energy = 2.446
 light_indirect_energy = 3.905
 omni_range = 12.0
@@ -182,7 +183,91 @@ light_color = Color(1, 0.670588, 0.486275, 1)
 light_energy = 2.446
 omni_range = 4096.0
 
-[connection signal="body_entered" from="Hub Ring - 1/Warp Area1" to="Player" method="_on_warp_area_1_body_entered"]
-[connection signal="body_entered" from="Hub Ring - 2/Warp Area2" to="Player" method="_on_warp_area_2_body_entered"]
+[node name="Level Ring - 3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 7, 2, 0)
+mesh = SubResource("TorusMesh_h1gcv")
+script = ExtResource("2_3j1i3")
+
+[node name="Goal Light" type="OmniLight3D" parent="Level Ring - 3"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+light_color = Color(0, 0.737255, 0.584314, 1)
+light_energy = 2.446
+light_indirect_energy = 3.905
+omni_range = 12.0
+
+[node name="Warp Area3" type="Area3D" parent="Level Ring - 3"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+disable_mode = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Ring - 3/Warp Area3"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_k115e")
+
+[node name="Level Ring - 4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 7, 2, 10)
+mesh = SubResource("TorusMesh_h1gcv")
+script = ExtResource("2_3j1i3")
+
+[node name="Goal Light" type="OmniLight3D" parent="Level Ring - 4"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+light_color = Color(0, 0.737255, 0.584314, 1)
+light_energy = 2.446
+light_indirect_energy = 3.905
+omni_range = 12.0
+
+[node name="Warp Area4" type="Area3D" parent="Level Ring - 4"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+disable_mode = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Ring - 4/Warp Area4"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_k115e")
+
+[node name="Level Ring - 5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 2, 9)
+mesh = SubResource("TorusMesh_h1gcv")
+script = ExtResource("2_3j1i3")
+
+[node name="Goal Light" type="OmniLight3D" parent="Level Ring - 5"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+light_color = Color(0, 0.737255, 0.584314, 1)
+light_energy = 2.446
+light_indirect_energy = 3.905
+omni_range = 12.0
+
+[node name="Warp Area5" type="Area3D" parent="Level Ring - 5"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+disable_mode = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Ring - 5/Warp Area5"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_k115e")
+
+[node name="Level Ring - 6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9, 2, 9)
+mesh = SubResource("TorusMesh_h1gcv")
+script = ExtResource("2_3j1i3")
+
+[node name="Goal Light" type="OmniLight3D" parent="Level Ring - 6"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+light_color = Color(0, 0.737255, 0.584314, 1)
+light_energy = 2.446
+light_indirect_energy = 3.905
+omni_range = 12.0
+
+[node name="Warp Area6" type="Area3D" parent="Level Ring - 6"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+disable_mode = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Ring - 6/Warp Area6"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_k115e")
+
+[connection signal="body_entered" from="Level Ring - 1/Warp Area1" to="Player" method="_on_warp_area_1_body_entered"]
+[connection signal="body_entered" from="Level Ring - 2/Warp Area2" to="Player" method="_on_warp_area_2_body_entered"]
 [connection signal="body_entered" from="Goal Ring/Warp Goal" to="Player" method="_on_warp_goal_body_entered"]
 [connection signal="body_entered" from="Hub Ring/Warp Hub" to="Player" method="_on_warp_hub_body_entered"]
+[connection signal="body_entered" from="Level Ring - 3/Warp Area3" to="Player" method="_on_warp_area_3_body_entered"]
+[connection signal="body_entered" from="Level Ring - 4/Warp Area4" to="Player" method="_on_warp_area_4_body_entered"]
+[connection signal="body_entered" from="Level Ring - 5/Warp Area5" to="Player" method="_on_warp_area_5_body_entered"]
+[connection signal="body_entered" from="Level Ring - 6/Warp Area6" to="Player" method="_on_warp_area_6_body_entered"]

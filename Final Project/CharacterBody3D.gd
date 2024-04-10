@@ -4,8 +4,10 @@ extends CharacterBody3D
 const SPEED = 5.5
 const JUMP_VELOCITY = 5.0
 var ResetClock = 0 # Used for reseting the game by holding "R".
-var FlickerClock = 0 # Higher the flicker, the closer the player will run out of flashlight.
-var reachTimeOut = 0 # Starts at zero, but will accumulate to 30 in the "_flicker()" event to simulate flashlights.
+var FlickerClock = 0 # Used to determine the timer for the scene changes when reaching the goal ring.
+# Previously, the above variable was for a mechanic closer the player will run out of flashlight.
+
+# var reachTimeOut = 0 # Starts at zero, but will accumulate to 30 in the "_flicker()" event to simulate flashlights.
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -74,10 +76,14 @@ func _input(event):
 
 func _physics_process(delta):
 	
+	
+	### VITAL ###
+	FlickerClock += 1 # This variable will uptick every frame.
+	
 	# _stepSFX() #Play step sound effect if the play moves in any direction.
 	# Cut because the execution was awkward.
 	
-	# Check to see if flashlight is on. If so, accumulate the flicker counter.
+	# Check to see if flashlight is on. If so, double flicker counter's accumulation.
 	if Flashlight.visible:
 		FlickerClock += 1 # Go up by "1" every frame. This will be used for a flicker effect.
 		# Below are the listed times (per frame) when the flicker sound will play.
@@ -93,6 +99,8 @@ func _physics_process(delta):
 			#flicker.play() 
 		#if FlickerClock == 1050: 
 			#flicker.play()
+	print(FlickerClock) # For Debugging purposes, display how much "FLickerCLock" has passed.
+	### END OF VITAL ###
 	# Reset the Game
 	# This is a fail-safe to ensure that, if the player gets stuck,
 	# they can reset the scene by just pressing "R" for 10 seconds.
@@ -100,7 +108,7 @@ func _physics_process(delta):
 		ResetClock += 1 # Add 1 to the reset clock.
 		# Assuming 60 FPS, it'll take 600 frames to reach the 10 second threshold.
 		if ResetClock > 600: # Checks clock surpasses 600.
-			get_tree().change_scene_to_file("res://Second Iteration - Maze.tscn") # Resets the scene.
+			get_tree().change_scene_to_file("res://1_aa_Hub.tscn") # Resets the scene.
 			# File listed above is subject to change.
 			# There is no need to reset the "ResetClock" variable because the scene reseting does that one its own.
 			# I found this at: https://youtu.be/XHbrKdsZrxY?si=wYUMdFqHqOhZpikg&t=101
@@ -123,9 +131,9 @@ func _physics_process(delta):
 
 	# Handle jump.
 	# Original pre-set.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	# if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 	# Allows multijump.
-	# if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept"):
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -147,12 +155,33 @@ func _physics_process(delta):
 # Also, the tet maps are here as placeholders until I fully implement the regular ones.
 # Hub Ring 1 - Leads to Level 1
 func _on_warp_area_1_body_entered(body):
-	get_tree().change_scene_to_file("res://Second Iteration - Maze.tscn")
+	get_tree().change_scene_to_file("res://1_a_Course 1.tscn")
 	pass # Replace with function body.
 
 # Hub Ring 2 - Leads to Level 2
 func _on_warp_area_2_body_entered(body):
-	get_tree().change_scene_to_file("res://Main Map - First Iteration.tscn")
+	get_tree().change_scene_to_file("res://1_a_Course 2.tscn")
+	pass # Replace with function body.
+	
+
+# Hub Ring 3 - Leads to Level 3
+func _on_warp_area_3_body_entered(body):
+	get_tree().change_scene_to_file("res://1_a_Course 3.tscn")
+	pass # Replace with function body.
+
+# Hub Ring 4 - Leads to Level 4
+func _on_warp_area_4_body_entered(body):
+	get_tree().change_scene_to_file("res://1_a_Course 4.tscn")
+	pass # Replace with function body.
+
+# Hub Ring 4 - Leads to Level 5
+func _on_warp_area_5_body_entered(body):
+	get_tree().change_scene_to_file("res://1_a_Course 5.tscn")
+	pass # Replace with function body.
+
+# Hub Ring 6 - Leads to Level 6
+func _on_warp_area_6_body_entered(body):
+	get_tree().change_scene_to_file("res://1_a_Course 6.tscn")
 	pass # Replace with function body.
 
 #### GOAL RING WARPS ####
@@ -160,8 +189,20 @@ func _on_warp_area_2_body_entered(body):
 # The variables pertaining to time and flashlight usage will used here.
 # TODO: Create a function with a bunch of if-else statments to determine where to warp.
 func _on_warp_goal_body_entered(body):
-	get_tree().change_scene_to_file("res://Main Map - First Iteration.tscn")
-	pass # Replace with function body.
+	# Warps player to the room that shows how well they did.
+	# Overuse of "else:if". This is bad code, but it works.
+	# Thankfully, it only has to happen upon touching a ring.
+	# OPTIONAL TODO: Switch to switch cases.
+	if FlickerClock < 36001: # If a minute or less passed.
+		get_tree().change_scene_to_file("res://1_a_Rank S.tscn")
+	else: if FlickerClock < 72001: # If two minutes or less passed.
+		get_tree().change_scene_to_file("res://1_a_Rank A.tscn")
+	else: if FlickerClock < 108001: # If three minutes or less passed.
+		get_tree().change_scene_to_file("res://1_a_Rank B.tscn")
+	else: if FlickerClock < 144001: # If four minutes or less passed.
+		get_tree().change_scene_to_file("res://1_a_Rank C.tscn")
+	else: #Anything beyond five minutes.
+		get_tree().change_scene_to_file("res://1_a_Rank D.tscn")
 
 #### BACK TO HUB WARP ####
 # Warps player back to hub.
@@ -169,3 +210,4 @@ func _on_warp_goal_body_entered(body):
 func _on_warp_hub_body_entered(body):
 	get_tree().change_scene_to_file("res://1_aa_Hub.tscn")
 	pass # Replace with function body.
+

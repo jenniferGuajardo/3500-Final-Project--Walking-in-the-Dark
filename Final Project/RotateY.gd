@@ -8,10 +8,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# Rotate around the object's local X axis by 0.05 radians.
-	rotate_object_local(Vector3(1, 0, 0), 0.05)
+	# Rotate around the object's local Z axis by 0.02 radians.
+	rotate_object_local(Vector3(0, 1, 0), 0.02)
 	pass
-
-
-func _on_warp_area_4_body_entered(body):
-	pass # Replace with function body.
