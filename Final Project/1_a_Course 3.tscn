@@ -395,4 +395,13 @@ mesh = SubResource("PlaneMesh_pfk74")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="End Area Wall - 2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_fehy6")
 
+[node name="OuterWall6" type="MeshInstance3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 20, 0, 0, 0, 5, 0, -20, 89.3115)
+mesh = SubResource("BoxMesh_56le2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="OuterWall6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OuterWall6/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_3ohho")
+
 [connection signal="body_entered" from="Warp Goal" to="Player" method="_on_warp_goal_body_entered"]
