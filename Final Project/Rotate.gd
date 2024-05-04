@@ -1,3 +1,6 @@
+### Jennifer Guajardo ###
+# Ripped straight from this classes earlier tutorials, this is needed for several rotating obstacles.
+
 extends MeshInstance3D
 
 
@@ -12,6 +15,6 @@ func _process(delta):
 	rotate_object_local(Vector3(1, 0, 0), 0.05)
 	pass
 
-
+# This was likely misplaced. Although, I don't want to delete it just in case.
 func _on_warp_area_4_body_entered(body):
 	pass # Replace with function body.

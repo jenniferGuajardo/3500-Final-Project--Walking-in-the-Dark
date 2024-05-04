@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_q54dv"]
 [ext_resource type="AudioStream" uid="uid://cmkwosf2gk7ag" path="res://click-button-140881.mp3" id="2_r186s"]
-[ext_resource type="AudioStream" uid="uid://nc3chwauuu31" path="res://mystery-atmosphere-176997.mp3" id="3_an43m"]
+[ext_resource type="AudioStream" uid="uid://drpyy88kdb1wx" path="res://pleasant-atmosphere-153275.mp3" id="3_hatwq"]
 [ext_resource type="AudioStream" uid="uid://rov76p7ax1i6" path="res://music-box-for-suspenseful-scenes-166461.mp3" id="4_2wxqn"]
 [ext_resource type="AudioStream" uid="uid://dafxuq1gx3ga1" path="res://a-shotgun-blast-165915.mp3" id="5_jr0px"]
 
@@ -126,9 +126,7 @@ stream = ExtResource("2_r186s")
 pitch_scale = 1.2
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_an43m")
-volume_db = 10.739
-pitch_scale = 0.41
+stream = ExtResource("3_hatwq")
 
 [node name="Flashlight Theme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_2wxqn")

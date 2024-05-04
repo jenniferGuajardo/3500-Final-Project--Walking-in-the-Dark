@@ -1,3 +1,7 @@
+### Jennifer Guajardo ###
+# This is a variation of the other rotate script.
+# While unused, I experimented with this in order to fix that Y-axis issue I asked about in the discord.
+
 extends MeshInstance3D
 
 

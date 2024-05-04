@@ -1,3 +1,8 @@
+### Jennifer Guajardo ###
+# I'll admit: I don't know why this file exists.
+# It just kinda popped up when I was cleaning up the code & comments.
+# I probably misclicked something, but I won't delete this just in case. 
+
 extends Area3D
 
 

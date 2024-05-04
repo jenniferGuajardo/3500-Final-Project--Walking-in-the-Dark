@@ -1,4 +1,7 @@
+### Jennifer Guajardo ###
 ### EXPERIMENT ###
+# This is unused. I temporarily used this script to experiment with the movement physics system. 
+# Here, you'll see some older versions of the code.
 
 # I wanna see what happens when I adjust the physics.
 

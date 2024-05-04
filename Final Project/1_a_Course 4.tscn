@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://41y5whn6aiil"]
+[gd_scene load_steps=15 format=3 uid="uid://41y5whn6aiil"]
 
 [ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_iaqs8"]
 [ext_resource type="Script" path="res://Rotate.gd" id="2_py0vu"]
+[ext_resource type="AudioStream" uid="uid://cmkwosf2gk7ag" path="res://click-button-140881.mp3" id="3_fyl4p"]
+[ext_resource type="AudioStream" uid="uid://drpyy88kdb1wx" path="res://pleasant-atmosphere-153275.mp3" id="4_yb6lo"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vdx5e"]
 
@@ -47,6 +49,7 @@ shape = SubResource("CapsuleShape3D_fylf5")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 0.99845, 0.0556649, 0, -0.0556649, 0.99845, 0, 0, 0)
+visible = false
 light_color = Color(1, 0.878431, 0.721569, 1)
 light_energy = 4.0
 light_size = 1.0
@@ -245,5 +248,12 @@ mesh = SubResource("CylinderMesh_0f46c")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar - 9/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_i0x5p")
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_fyl4p")
+pitch_scale = 1.2
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yb6lo")
 
 [connection signal="body_entered" from="Goal Ring/Warp Goal" to="Player" method="_on_warp_goal_body_entered"]
